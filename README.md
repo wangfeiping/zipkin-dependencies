@@ -2,9 +2,9 @@
 [![Build Status](https://travis-ci.org/openzipkin/zipkin-dependencies.svg?branch=master)](https://travis-ci.org/openzipkin/zipkin-dependencies)
 [![Maven Central](https://img.shields.io/maven-central/v/io.zipkin.dependencies/zipkin-dependencies.svg)](https://search.maven.org/search?q=g:io.zipkin.dependencies%20AND%20a:zipkin-dependencies)
 
-# zipkin-dependencies
+# The calculation module based on zipkin-dependencies
 
-Zipkin Dependencies collects spans from storage, analyzes links between services, and stores them for later presentation in the [web UI](https://github.com/openzipkin/zipkin/tree/master/zipkin-lens) (ex. http://localhost:8080/dependency).
+[Zipkin Dependencies](https://github.com/openzipkin/zipkin-dependencies) collects spans from storage, analyzes links between services, and stores them for later presentation in the [web UI](https://github.com/openzipkin/zipkin/tree/master/zipkin-lens) (ex. http://localhost:8080/dependency).
 
 This process is implemented as an Apache Spark job. This job parses all traces in the current day in UTC time. This means you should schedule it to run just prior to midnight UTC.
 
