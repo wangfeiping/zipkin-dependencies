@@ -21,7 +21,9 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.LinkedHashMap;
 import java.util.TimeZone;
+
 import zipkin2.dependencies.cassandra.CassandraDependenciesJob;
+import zipkin2.dependencies.datalake.ElasticsearchJob;
 import zipkin2.dependencies.elasticsearch.ElasticsearchDependenciesJob;
 import zipkin2.dependencies.mysql.MySQLDependenciesJob;
 
@@ -81,7 +83,16 @@ public final class ZipkinDependenciesJob {
           .run();
         break;
       case "elasticsearch":
-        ElasticsearchDependenciesJob.builder()
+    	ElasticsearchDependenciesJob.builder()
+    	  .logInitializer(logInitializer)
+          .jars(jarPath)
+          .day(day)
+          .conf(sparkConf)
+          .build()
+          .run();
+        break;
+      case "elasticsearch-job":
+        ElasticsearchJob.builder()
           .logInitializer(logInitializer)
           .jars(jarPath)
           .day(day)

@@ -11,7 +11,7 @@
  * or implied. See the License for the specific language governing permissions and limitations under
  * the License.
  */
-package zipkin2.dependencies.elasticsearch;
+package zipkin2.dependencies.datalake;
 
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.MalformedJsonException;
@@ -42,10 +42,10 @@ import zipkin2.internal.SpanNode;
 import static com.google.common.base.Preconditions.checkNotNull;
 import static zipkin2.internal.DateUtil.midnightUTC;
 
-public final class ElasticsearchDependenciesJob {
+public final class ElasticsearchJob {
   static final Charset UTF_8 = Charset.forName("UTF-8");
 
-  private static final Logger log = LoggerFactory.getLogger(ElasticsearchDependenciesJob.class);
+  private static final Logger log = LoggerFactory.getLogger(ElasticsearchJob.class);
 
   public static Builder builder() {
     return new Builder();
@@ -134,8 +134,8 @@ public final class ElasticsearchDependenciesJob {
       return this;
     }
 
-    public ElasticsearchDependenciesJob build() {
-      return new ElasticsearchDependenciesJob(this);
+    public ElasticsearchJob build() {
+      return new ElasticsearchJob(this);
     }
   }
 
@@ -149,7 +149,7 @@ public final class ElasticsearchDependenciesJob {
   final SparkConf conf;
   @Nullable final Runnable logInitializer;
 
-  ElasticsearchDependenciesJob(Builder builder) {
+  ElasticsearchJob(Builder builder) {
     this.index = builder.index;
     String dateSeparator = getEnv("ES_DATE_SEPARATOR", "-");
     SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd".replace("-", dateSeparator));

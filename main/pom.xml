@@ -50,6 +50,11 @@
       <groupId>${project.groupId}</groupId>
       <artifactId>zipkin-dependencies-elasticsearch</artifactId>
     </dependency>
+    
+    <dependency>
+      <groupId>${project.groupId}</groupId>
+      <artifactId>zipkin-dependencies-datalake</artifactId>
+    </dependency>
   </dependencies>
 
   <build>
